@@ -5,7 +5,7 @@ from datetime import datetime
 def mask_account_card(text: str)-> str | None:
     # Функция, которая умеет обрабатывать информацию как о картах, так и о счетах
 
-    if not text:
+    if not text or not text.strip():
         return None
 
     try:
