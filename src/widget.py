@@ -1,10 +1,9 @@
-from masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_card_number, get_mask_account
 from datetime import datetime
 
 
-def mask_account_card(text: str)-> str | None:
-    # Функция, которая умеет обрабатывать информацию как о картах, так и о счетах
-
+def mask_account_card(text: str) -> str | None:
+    """Функция, которая умеет обрабатывать информацию как о картах, так и о счетах"""
     if not text or not text.strip():
         return None
 
@@ -21,8 +20,9 @@ def mask_account_card(text: str)-> str | None:
     except ValueError:
         return None
 
+
 def get_date(date_string: str) -> str | None:
-    #Преобразует дату в формат ДД.ММ.ГГГГ
+    """Преобразует дату в формат ДД.ММ.ГГГГ"""
 
     try:
         date = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S.%f")
