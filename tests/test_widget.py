@@ -12,7 +12,7 @@ from src.widget import get_date, mask_account_card
         ("МИР 1234567890123456", "МИР 1234 56** **** 3456"),
     ],
 )
-def test_mask_account_card(text, expected):
+def test_mask_account_card(text: str, expected: str) -> None:
     assert mask_account_card(text) == expected
 
 
@@ -24,7 +24,7 @@ def test_mask_account_card(text, expected):
         "Visa Platinum",
     ],
 )
-def test_mask_account_card_invalid_input(text):
+def test_mask_account_card_invalid_input(text: str) -> None:
     assert mask_account_card(text) is None
 
 
@@ -36,7 +36,7 @@ def test_mask_account_card_invalid_input(text):
         ("2025-12-31T23:59:59.999999", "31.12.2025"),
     ],
 )
-def test_get_date(date_string, expected):
+def test_get_date(date_string: str, expected: str) -> None:
     assert get_date(date_string) == expected
 
 
@@ -49,5 +49,5 @@ def test_get_date(date_string, expected):
         None,
     ],
 )
-def test_get_date_invalid_input(date_string):
-    assert get_date(date_string) is None
+def test_get_date_invalid_input(date_string: str | None) -> None:
+    assert get_date(date_string) is None  # type: ignore[arg-type]
