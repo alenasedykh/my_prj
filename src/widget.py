@@ -10,6 +10,9 @@ def mask_account_card(text: str) -> str | None:
     try:
         name, number = text.rsplit(" ", 1)
 
+        if not number.isdigit():
+            return None
+
         if name == "Счет":
             masked_number = get_mask_account(number)
         else:
