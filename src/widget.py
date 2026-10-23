@@ -1,5 +1,6 @@
-from src.masks import get_mask_card_number, get_mask_account
 from datetime import datetime
+
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(text: str) -> str | None:
@@ -9,6 +10,9 @@ def mask_account_card(text: str) -> str | None:
 
     try:
         name, number = text.rsplit(" ", 1)
+
+        if not number.isdigit():
+            return None
 
         if name == "Счет":
             masked_number = get_mask_account(number)
